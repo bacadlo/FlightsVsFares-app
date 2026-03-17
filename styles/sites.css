@@ -1,0 +1,158 @@
+/* Sites Section */
+
+.sites-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .sites-section {
+    padding: 0 48px;
+  }
+}
+
+.sites-section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+  transition: border-color 0.4s;
+}
+
+.sites-section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: color 0.4s;
+}
+
+.sites-section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  transition: background 0.4s;
+}
+
+/* Site List */
+
+.site-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Site Row */
+
+.site-row {
+  display: grid;
+  grid-template-columns: 48px 1fr auto auto;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-2);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, padding 0.2s;
+}
+
+.site-row:hover {
+  background: var(--accent-soft);
+  border-bottom-color: var(--accent);
+  padding-left: 12px;
+  padding-right: 12px;
+  margin: 0 -12px;
+}
+
+/* Number */
+
+.site-row-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--text-faint);
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.site-row:hover .site-row-num {
+  color: var(--accent);
+}
+
+/* Name + Description */
+
+.site-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.site-row-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: color 0.2s;
+}
+
+.site-row-desc {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s;
+}
+
+/* Hide description below sm */
+@media (max-width: 479px) {
+  .site-row-desc {
+    display: none;
+  }
+}
+
+/* Badge */
+
+.site-row-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 5px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: color 0.4s, background 0.4s;
+}
+
+/* Open button */
+
+.site-row-open {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 7px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.site-row:hover .site-row-open {
+  background: var(--accent);
+  color: var(--btn-text);
+  border-color: var(--accent);
+}

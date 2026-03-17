@@ -5,20 +5,17 @@ import { useRouter } from 'next/navigation';
 import '../../styles/search.css';
 
 const FIELDS = [
-  { key: 'from',       label: 'From',       placeholder: 'City or airport', type: 'text'   },
-  { key: 'to',         label: 'To',         placeholder: 'City or airport', type: 'text'   },
-  { key: 'dates',      label: 'Dates',      placeholder: 'e.g. Apr 14 – Apr 28', type: 'text' },
-  { key: 'passengers', label: 'Passengers', placeholder: '1', type: 'number' },
+  { key: 'from',       label: 'From',       placeholder: 'City or airport',      type: 'text',   defaultValue: ''  },
+  { key: 'to',         label: 'To',         placeholder: 'City or airport',      type: 'text',   defaultValue: ''  },
+  { key: 'dates',      label: 'Dates',      placeholder: 'e.g. Apr 14 – Apr 28', type: 'text',   defaultValue: ''  },
+  { key: 'passengers', label: 'Passengers', placeholder: '1',                    type: 'number', defaultValue: '1', min: 1, max: 9 },
 ];
 
 export function SearchForm({ initialValues = {} }) {
   const router = useRouter();
-  const [values, setValues] = useState({
-    from:       initialValues.from       ?? '',
-    to:         initialValues.to         ?? '',
-    dates:      initialValues.dates      ?? '',
-    passengers: initialValues.passengers ?? '1',
-  });
+  const [values, setValues] = useState(() =>
+    Object.fromEntries(FIELDS.map(({ key, defaultValue }) => [key, initialValues[key] ?? defaultValue]))
+  );
 
   function handleChange(key, value) {
     setValues(prev => ({ ...prev, [key]: value }));
@@ -34,11 +31,8 @@ export function SearchForm({ initialValues = {} }) {
 
   return (
     <form className="search-form" onSubmit={handleSubmit} noValidate>
-      {FIELDS.map(({ key, label, placeholder, type }) => (
-        <div
-          key={key}
-          className={`search-field search-field--${key}`}
-        >
+      {FIELDS.map(({ key, label, placeholder, type, min, max }) => (
+        <div key={key} className={`search-field search-field--${key}`}>
           <label className="search-field-label" htmlFor={`field-${key}`}>
             {label}
           </label>
@@ -48,8 +42,8 @@ export function SearchForm({ initialValues = {} }) {
             type={type}
             placeholder={placeholder}
             value={values[key]}
-            min={type === 'number' ? 1 : undefined}
-            max={type === 'number' ? 9 : undefined}
+            min={min}
+            max={max}
             onChange={e => handleChange(key, e.target.value)}
           />
         </div>

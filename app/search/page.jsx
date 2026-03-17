@@ -1,5 +1,6 @@
 import { EyebrowLabel } from '../../components/ui/EyebrowLabel';
 import { SearchForm } from '../../components/search/SearchForm';
+import { SiteList } from '../../components/search/SiteList';
 import '../../styles/search.css';
 
 export const metadata = {
@@ -15,6 +16,7 @@ export default function SearchPage({ searchParams }) {
       </section>
 
       <SearchForm initialValues={searchParams} />
+      <SiteList />
     </main>
   );
 }
