@@ -1,33 +1,70 @@
+/* Design Tokens */
+
+[data-theme="day"] {
+  --bg-top:        #87CEEB;
+  --bg-mid:        #C8E8F8;
+  --bg-bot:        #A8D4EE;
+  --surface:       rgba(255, 255, 255, 0.72);
+  --surface-2:     rgba(255, 255, 255, 0.45);
+  --border:        rgba(0, 130, 200, 0.15);
+  --border-2:      rgba(0, 130, 200, 0.08);
+  --accent:        #0085C7;
+  --accent-soft:   rgba(0, 133, 199, 0.12);
+  --text-primary:  #092540;
+  --text-mid:      #3A6A88;
+  --text-muted:    #7AAFC8;
+  --text-faint:    #B0D3E8;
+  --glow-a:        rgba(0, 160, 230, 0.18);
+  --glow-b:        rgba(100, 200, 255, 0.12);
+  --btn-text:      #fff;
+}
+
+[data-theme="night"] {
+  --bg-top:        #020510;
+  --bg-mid:        #07091A;
+  --bg-bot:        #1a1f3a;
+  --surface:       rgba(15, 22, 50, 0.82);
+  --surface-2:     rgba(15, 22, 50, 0.50);
+  --border:        rgba(120, 160, 255, 0.14);
+  --border-2:      rgba(120, 160, 255, 0.06);
+  --accent:        #7B9FFF;
+  --accent-soft:   rgba(123, 159, 255, 0.12);
+  --text-primary:  #E8EEFF;
+  --text-mid:      #7B9FBB;
+  --text-muted:    #3A5070;
+  --text-faint:    #1E2E45;
+  --glow-a:        rgba(80, 120, 255, 0.20);
+  --glow-b:        rgba(255, 180, 80, 0.06);
+  --btn-text:      #07091A;
+}
+
+/* Breakpoints for reference */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --sm: 480px;
+  --md: 768px;
+  --lg: 1024px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* CSS Reset */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-primary);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -35,8 +72,73 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Keyframes for atmosphere layer */
+@keyframes drift1 {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(22px); }
+}
+
+@keyframes drift2 {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(-18px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes rowIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

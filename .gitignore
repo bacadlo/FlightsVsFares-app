@@ -1,6 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+# Dependencies
 /node_modules
 /.pnp
 .pnp.*
@@ -10,32 +8,77 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
-
-# next.js
+# Next.js
 /.next/
 /out/
+/build/
 
-# production
-/build
+# Production
+/dist
+.next
 
-# misc
+# Testing
+/coverage
+.nyc_output
+
+# Environment variables (NEVER commit API keys)
+.env
+.env.local
+.env.*.local
+.env.production.local
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
-*.pem
+.history/
+.ionide/
 
-# debug
+# Logs
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# Cache
+.cache/
+*.cache
+.turbo/
+.eslintcache
 
-# vercel
+# OS
+.DS_Store
+Thumbs.db
+.env.local.*.backup
+
+# Debug
+.vscode-test
+.vscode/*.log
+
+# Misc
+*.pem
 .vercel
 
-# typescript
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# PM2 (for deployment)
+ecosystem.config.js.bak
+.pm2/
+
+# IDE specific
+.vscode/settings.json
+.vscode/extensions.json
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
