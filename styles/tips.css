@@ -1,0 +1,113 @@
+/* Tips Page */
+
+.tips-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-bottom: 80px;
+}
+
+/* Tips Grid */
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 0 20px;
+  transition: background 0.4s, border-color 0.4s;
+}
+
+@media (min-width: 768px) {
+  .tips-grid {
+    grid-template-columns: 1fr 1fr;
+    margin: 0 48px;
+  }
+}
+
+/* Tip Cards */
+
+.tip-card {
+  background: var(--surface);
+  backdrop-filter: blur(6px);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background 0.4s;
+}
+
+@media (min-width: 768px) {
+  .tip-card {
+    backdrop-filter: blur(12px);
+    padding: 32px;
+  }
+}
+
+.tip-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+  transition: color 0.4s;
+}
+
+.tip-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  transition: color 0.4s;
+}
+
+.tip-body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.75;
+  transition: color 0.4s;
+}
+
+.tip-accent {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 4px;
+  transition: color 0.4s;
+}
+
+/* Footer */
+
+.tips-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 0 20px;
+  margin-top: auto;
+}
+
+@media (min-width: 768px) {
+  .tips-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+  }
+}
+
+.tips-footer-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-mid);
+  transition: color 0.4s;
+}
