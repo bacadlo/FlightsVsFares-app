@@ -3,9 +3,23 @@ import { Atmosphere } from '../components/atmosphere/Atmosphere';
 import { SkyThemeProvider } from '../contexts/SkyThemeContext';
 import { Nav } from '../components/nav/Nav';
 
+const SITE_TITLE       = "FlightsVsFares — Find Your Cheapest Flight";
+const SITE_DESCRIPTION = "AI-powered flight search launcher. Describe your trip, get strategic advice, open every major booking site simultaneously.";
+
 export const metadata = {
-  title: "FlightsVsFares",
-  description: "AI-powered flight search launcher. Describe your trip, get strategic advice, open every major booking site simultaneously.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({ children }) {

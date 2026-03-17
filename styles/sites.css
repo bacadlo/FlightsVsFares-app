@@ -101,7 +101,9 @@
   transition: color 0.2s;
 }
 
+/* Hidden on mobile; shown at sm and above */
 .site-row-desc {
+  display: none;
   font-size: 12px;
   font-weight: 300;
   color: var(--text-muted);
@@ -111,10 +113,9 @@
   transition: color 0.2s;
 }
 
-/* Hide description below sm */
-@media (max-width: 479px) {
+@media (min-width: 480px) {
   .site-row-desc {
-    display: none;
+    display: block;
   }
 }
 

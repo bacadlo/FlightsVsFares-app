@@ -78,6 +78,7 @@
 .chat-bubble--ai {
   padding: 10px 0;
   color: var(--text-mid);
+  transition: color 0.4s;
 }
 
 .chat-bubble p {

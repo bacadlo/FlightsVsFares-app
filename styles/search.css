@@ -1,5 +1,22 @@
 /* Search Page */
 
+/* Page enter animations */
+.search-page .page-header {
+  animation: fadeUp 0.6s ease both;
+}
+
+.search-page .search-form {
+  animation: fadeUp 0.6s ease both 0.08s;
+}
+
+.search-page .chat-panel {
+  animation: fadeUp 0.6s ease both 0.16s;
+}
+
+.search-page .sites-section {
+  animation: fadeUp 0.6s ease both 0.24s;
+}
+
 .search-page {
   min-height: 100vh;
   display: flex;
