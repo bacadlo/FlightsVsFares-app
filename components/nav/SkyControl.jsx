@@ -3,7 +3,7 @@
 import { useSkyThemeContext } from '../../contexts/SkyThemeContext';
 
 const MODES = [
-  { id: 'auto',  label: '🔄', title: 'Auto cycle' },
+  { id: 'auto',  label: '🔀', title: 'Auto cycle' },
   { id: 'day',   label: '☀️', title: 'Day mode'   },
   { id: 'night', label: '🌙', title: 'Night mode'  },
 ];

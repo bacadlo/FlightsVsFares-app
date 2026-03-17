@@ -17,7 +17,7 @@ export function Nav() {
   return (
     <nav className="nav">
       <Link href="/" className="nav-logo" aria-label="FlightsVsFares home">
-        Flight<span className="nav-logo-accent">Scout</span>
+        Flights<span className="nav-logo-accent">Vs</span>Fares
       </Link>
 
       <div className="nav-tabs" role="navigation" aria-label="Main navigation">
