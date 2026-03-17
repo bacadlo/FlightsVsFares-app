@@ -1,3 +1,33 @@
+/* Page Header (shared by Search and Tips pages) */
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 40px 20px 0;
+}
+
+@media (min-width: 768px) {
+  .page-header {
+    padding: 48px 48px 0;
+  }
+}
+
+.page-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  transition: color 0.4s;
+}
+
+@media (min-width: 768px) {
+  .page-heading {
+    font-size: 72px;
+  }
+}
+
 /* Eyebrow Label */
 
 .eyebrow-label {

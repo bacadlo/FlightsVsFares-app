@@ -13,9 +13,9 @@ export const metadata = {
 export default function SearchPage({ searchParams }) {
   return (
     <main className="search-page">
-      <section className="search-header">
+      <section className="page-header">
         <EyebrowLabel>Flight Search</EyebrowLabel>
-        <h1 className="search-heading">SEARCH FLIGHTS</h1>
+        <h1 className="page-heading">SEARCH FLIGHTS</h1>
       </section>
 
       <SearchForm initialValues={searchParams} />

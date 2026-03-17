@@ -8,34 +8,6 @@
   padding-bottom: 120px; /* room for the sticky launch bar in Phase 7 */
 }
 
-.search-header {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 40px 20px 0;
-}
-
-@media (min-width: 768px) {
-  .search-header {
-    padding: 48px 48px 0;
-  }
-}
-
-.search-heading {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 56px;
-  line-height: 0.95;
-  letter-spacing: 0.04em;
-  color: var(--text-primary);
-  transition: color 0.4s;
-}
-
-@media (min-width: 768px) {
-  .search-heading {
-    font-size: 72px;
-  }
-}
-
 /* Search Form */
 
 .search-form {
