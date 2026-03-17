@@ -21,31 +21,32 @@ AI-powered flight search launcher. Describe your trip, get strategic advice, ope
 
 ## Overview
 
-FlightsVsFares is a web application designed to simplify flight search by providing strategic advice and one-click access to eight of the world's largest flight booking sites. Rather than entering your trip details into each site individually, you describe your trip once, receive AI-powered guidance on booking timing and routing strategies, then launch all searches simultaneously.
-
+FlightsVsFares is a three-page web application that simplifies flight search. You describe your trip once, receive AI-powered guidance on booking timing, routing strategies, and budget expectations, then open all eight major booking sites simultaneously in one click. The app never books flights itself — it gives you the strategy and the instant access to find the best deal yourself.
 
 ---
 
 ## Features
 
 ### Core Features
-- **AI Trip Advisor** 
-- **8 Booking Sites Integrated** 
-- **One-Click Launch** 
-- **Beautiful Sky-Themed UI** 
-- **Strategic Flight Tips** 
+- **AI Trip Advisor** — Chat interface backed by a configurable AI provider. Gives concise budget reality checks, optimal booking windows, and routing hacks.
+- **8 Booking Sites** — Google Flights, Skyscanner, Kayak, Kiwi.com, Momondo, Expedia, CheapFlights, and Hopper, each with a description of its unique strength.
+- **One-Click Launch** — Opens all 8 sites simultaneously in separate tabs from a single button.
+- **Sky-Themed UI** — Animated atmospheric background that cycles between a daytime sky and a night city view. Manually switchable between auto, day, and night modes.
+- **Flight Tips** — Editorial page with 6 practical tips covering booking windows, departure day pricing, nearby airports, and more.
 
 ---
 
 ## Tech Stack
 
 ### Frontend
-- **Framework:** Next.js 16.1.6 with App Router
+- **Framework:** Next.js 16.1.7 with App Router
 - **UI Library:** React 19.2.4
 - **HTTP Client:** Fetch API
 
 ### Backend Integration
 - **API Route:** Next.js API routes for server-side API key management
+- **AI Providers:** Anthropic Claude (default), OpenAI, DeepSeek, Google Gemini, Ollama — switchable via `AI_PROVIDER` env var
+- **AI SDKs:** `@anthropic-ai/sdk` 0.79.0, `openai` 6.31.0, `@google/genai` 1.45.0
 
 ---
 
@@ -64,8 +65,8 @@ FlightsVsFares is a web application designed to simplify flight search by provid
 ## Quick Start
 
 ### Prerequisites
-- **Node.js:** 18+ (22.22.1 LTS recommended)
-- **npm** or **yarn** for package management
+- **Node.js:** 22.22.1 LTS
+- **npm** for package management
 
 ### Development Setup
 
@@ -91,16 +92,30 @@ FlightsVsFares is a web application designed to simplify flight search by provid
    cp .env.example .env.local
    ```
 
-   Edit `.env.local` and add your AI API key:
+   Edit `.env.local` and set your chosen provider and API key:
    ```
-   AI_API_KEY=your_api_key_here
+   AI_PROVIDER=anthropic
+
+   ANTHROPIC_API_KEY=your_key_here
+   OPENAI_API_KEY=your_key_here
+   DEEPSEEK_API_KEY=your_key_here
+   GEMINI_API_KEY=your_key_here
+   OLLAMA_MODEL=llama3.3
    ```
+
+   `AI_PROVIDER` accepts: `anthropic` (default), `openai`, `deepseek`, `gemini`, `ollama`. Only the key for the active provider is required.
 
 4. **Start development server**
    ```bash
    npm run dev
    ```
    Application will be available at `http://localhost:3000`
+
+### Running Tests
+
+```bash
+npm test
+```
 
 ### Production Build
 
@@ -121,9 +136,10 @@ FlightsVsFares is a web application designed to simplify flight search by provid
 ### Internal Routes
 
 **Chat Endpoint**
-- `POST /api/chat` - Send a message to the AI Trip Advisor
+- `POST /api/chat` — Send a message to the AI Trip Advisor
   - Request: `{ message: string }`
   - Response: `{ reply: string }`
+  - The active provider is determined by `AI_PROVIDER` in `.env.local`. All API keys are kept server-side and never exposed to the client.
 
 ---
 
