@@ -1,0 +1,23 @@
+name: Dependency review
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  review:
+    name: Review new dependencies
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/dependency-review-action@v4
+        with:
+          # Fail if any newly introduced dependency has a high or critical CVE
+          fail-on-severity: high
+          # Post a summary comment on the PR
+          comment-summary-in-pr: always
