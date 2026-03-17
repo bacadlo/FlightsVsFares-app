@@ -6,12 +6,10 @@ jest.mock('../../../../lib/AIapis', () => ({
 
 const { askFlightAdvisor } = require('../../../../lib/AIapis');
 
+// The route handler only calls req.json(), so a plain mock is sufficient.
+// jsdom does not provide the Fetch API Request constructor.
 function makeRequest(body) {
-  return new Request('http://localhost/api/chat', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
+  return { json: async () => body };
 }
 
 describe('POST /api/chat', () => {
