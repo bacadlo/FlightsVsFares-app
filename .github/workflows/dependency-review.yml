@@ -13,9 +13,9 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6.0.2
 
-      - uses: actions/dependency-review-action@v4
+      - uses: actions/dependency-review-action@v4.9.0
         with:
           # Fail if any newly introduced dependency has a high or critical CVE
           fail-on-severity: high
