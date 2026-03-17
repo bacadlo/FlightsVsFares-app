@@ -83,3 +83,95 @@
 .chat-bubble p {
   margin: 0;
 }
+
+/* Pulse dot — animates while waiting for AI response */
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(1.4); }
+}
+
+.chat-pulse--loading {
+  animation: pulseGlow 1s ease-in-out infinite;
+}
+
+/* Thinking indicator (three dots) */
+
+@keyframes dotBounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40%           { transform: translateY(-5px); opacity: 1; }
+}
+
+.chat-bubble--thinking {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 14px 0;
+}
+
+.chat-bubble--thinking span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  animation: dotBounce 1.2s ease-in-out infinite;
+  transition: background 0.4s;
+}
+
+.chat-bubble--thinking span:nth-child(2) { animation-delay: 0.15s; }
+.chat-bubble--thinking span:nth-child(3) { animation-delay: 0.30s; }
+
+/* Input row */
+
+.chat-input-row {
+  display: flex;
+  gap: 1px;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+  transition: border-color 0.4s, background 0.4s;
+}
+
+.chat-input {
+  flex: 1;
+  background: var(--surface);
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-primary);
+  transition: background 0.4s, color 0.4s;
+}
+
+.chat-input::placeholder {
+  color: var(--text-muted);
+  transition: color 0.4s;
+}
+
+.chat-input:disabled {
+  opacity: 0.6;
+}
+
+.chat-send {
+  background: var(--surface);
+  border: none;
+  padding: 14px 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
+}
+
+.chat-send:hover:not(:disabled) {
+  background: var(--accent-soft);
+}
+
+.chat-send:disabled {
+  opacity: 0.4;
+  cursor: default;
+}

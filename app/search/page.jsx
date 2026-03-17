@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import { EyebrowLabel } from '../../components/ui/EyebrowLabel';
 import { SearchForm } from '../../components/search/SearchForm';
 import { SiteList } from '../../components/search/SiteList';
 import { LaunchBar } from '../../components/search/LaunchBar';
+import { ChatPanel } from '../../components/chat/ChatPanel';
 import '../../styles/search.css';
 
 export const metadata = {
@@ -17,6 +19,9 @@ export default function SearchPage({ searchParams }) {
       </section>
 
       <SearchForm initialValues={searchParams} />
+      <Suspense fallback={null}>
+        <ChatPanel />
+      </Suspense>
       <SiteList />
       <LaunchBar />
     </main>

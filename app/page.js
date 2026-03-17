@@ -33,7 +33,7 @@ export default function Home() {
           </div>
         </div>
 
-        <ChatPanel />
+        <ChatPanel preview />
       </section>
 
       <div className="stats-row" role="list">
