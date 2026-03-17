@@ -1,0 +1,139 @@
+/* Search Page */
+
+.search-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-bottom: 120px; /* room for the sticky launch bar in Phase 7 */
+}
+
+.search-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 40px 20px 0;
+}
+
+@media (min-width: 768px) {
+  .search-header {
+    padding: 48px 48px 0;
+  }
+}
+
+.search-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  transition: color 0.4s;
+}
+
+@media (min-width: 768px) {
+  .search-heading {
+    font-size: 72px;
+  }
+}
+
+/* Search Form */
+
+.search-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 0 20px;
+  transition: background 0.4s, border-color 0.4s;
+}
+
+@media (min-width: 768px) {
+  .search-form {
+    grid-template-columns: 1fr 1fr 1fr auto;
+    margin: 0 48px;
+  }
+}
+
+/* Field cells */
+
+.search-field {
+  background: var(--surface);
+  backdrop-filter: blur(6px);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: background 0.4s;
+}
+
+@media (min-width: 768px) {
+  .search-field {
+    backdrop-filter: blur(12px);
+  }
+
+  /* Passengers spans the bottom 3 columns; Submit spans both rows */
+  .search-field--passengers {
+    grid-column: 1 / 4;
+  }
+}
+
+.search-field-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.4s;
+}
+
+.search-field-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: color 0.4s;
+  width: 100%;
+}
+
+.search-field-input::placeholder {
+  color: var(--text-muted);
+  font-weight: 400;
+  transition: color 0.4s;
+}
+
+/* removes browser number input arrows */
+.search-field-input[type="number"]::-webkit-inner-spin-button,
+.search-field-input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Submit button */
+
+.search-submit {
+  background: var(--accent);
+  color: var(--btn-text);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  padding: 18px 32px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.4s, color 0.4s, opacity 0.2s;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .search-submit {
+    grid-row: 1 / 3;
+    padding: 0 32px;
+  }
+}
+
+.search-submit:hover {
+  opacity: 0.88;
+}
