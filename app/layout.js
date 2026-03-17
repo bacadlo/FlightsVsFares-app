@@ -1,4 +1,7 @@
 import "./globals.css";
+import { Atmosphere } from '../components/atmosphere/Atmosphere';
+import { SkyThemeProvider } from '../contexts/SkyThemeContext';
+import { Nav } from '../components/nav/Nav';
 
 export const metadata = {
   title: "FlightsVsFares",
@@ -15,7 +18,13 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        {children}
+        <SkyThemeProvider>
+          <Atmosphere />
+          <div className="page-wrapper">
+            <Nav />
+            {children}
+          </div>
+        </SkyThemeProvider>
       </body>
     </html>
   );

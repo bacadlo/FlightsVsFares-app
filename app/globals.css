@@ -62,9 +62,15 @@ body {
 body {
   font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--text-primary);
-  background: var(--surface);
+  background: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sits above the fixed atmosphere layer */
+.page-wrapper {
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -103,22 +109,6 @@ select {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
-}
-
-/* Keyframes for atmosphere layer */
-@keyframes drift1 {
-  0%, 100% { transform: translateX(0px); }
-  50% { transform: translateX(22px); }
-}
-
-@keyframes drift2 {
-  0%, 100% { transform: translateX(0px); }
-  50% { transform: translateX(-18px); }
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
 }
 
 @keyframes rowIn {

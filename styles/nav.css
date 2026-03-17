@@ -1,0 +1,55 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px;
+  backdrop-filter: blur(7px);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.4s, border-color 0.4s;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    backdrop-filter: blur(14px);
+    padding: 20px 48px;
+  }
+}
+
+/* Sky Control pill */
+
+.sky-control {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 4px;
+  transition: background 0.4s, border-color 0.4s;
+}
+
+.sky-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 100px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.sky-btn:hover {
+  background: var(--accent-soft);
+}
+
+.sky-btn[aria-pressed="true"] {
+  background: var(--accent);
+}

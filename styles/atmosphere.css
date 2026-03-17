@@ -1,0 +1,121 @@
+/* Atmosphere layer */
+
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Sky gradients — day on bottom, night on top */
+
+.sky-day,
+.sky-night {
+  position: absolute;
+  inset: 0;
+}
+
+.sky-day {
+  background: linear-gradient(180deg,
+    #5BA3D9 0%,
+    #87CEEB 30%,
+    #C8E8F8 65%,
+    #A8D4EE 100%
+  );
+}
+
+.sky-night {
+  background: linear-gradient(180deg,
+    #020510 0%,
+    #07091A 35%,
+    #0B1030 65%,
+    #1a1f3a 100%
+  );
+  opacity: 0;
+  transition: opacity 3s ease;
+}
+
+/* Clouds */
+
+.clouds {
+  position: absolute;
+  inset: 0;
+  transition: opacity 3s ease;
+}
+
+.cloud {
+  position: absolute;
+  background: #fff;
+  border-radius: 100px;
+  /* Mobile: 50% blur to reduce GPU cost on low-end devices */
+  filter: blur(14px);
+  opacity: 0.65;
+}
+
+@media (min-width: 768px) {
+  .cloud {
+    filter: blur(28px);
+  }
+}
+
+.cloud-1 { width: 500px; height: 90px; top: 10%; left: -80px;  animation: drift1 22s ease-in-out infinite; }
+.cloud-2 { width: 360px; height: 65px; top: 20%; right:  3%;   animation: drift2 28s ease-in-out infinite; }
+.cloud-3 { width: 520px; height: 75px; top: 36%; left:  15%;   animation: drift1 34s ease-in-out infinite 4s; }
+.cloud-4 { width: 260px; height: 50px; top: 52%; right: 18%;   animation: drift2 24s ease-in-out infinite 2s; }
+.cloud-5 { width: 400px; height: 60px; top: 66%; left: -30px;  animation: drift1 30s ease-in-out infinite 7s; }
+
+/* Stars */
+
+.stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 3s ease;
+}
+
+/* Horizon glow — soft blue wash in day, warm amber in night */
+
+.horizon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 38%;
+  /* Day: soft blue wash */
+  background: linear-gradient(to top,
+    rgba(0, 133, 199, 0.18) 0%,
+    transparent 100%
+  );
+  transition: background 3s ease;
+}
+
+/* Radial glow blob — top-right corner */
+
+.glow-blob {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--glow-a) 0%, transparent 70%);
+  pointer-events: none;
+  transition: background 3s ease;
+}
+
+/* Keyframes */
+
+@keyframes drift1 {
+  0%, 100% { transform: translateX(0px); }
+  50%       { transform: translateX(22px); }
+}
+
+@keyframes drift2 {
+  0%, 100% { transform: translateX(0px); }
+  50%       { transform: translateX(-18px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1; }
+}
