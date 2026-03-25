@@ -65,7 +65,7 @@ FlightsVsFares is a three-page web application that simplifies flight search. Yo
 ## Quick Start
 
 ### Prerequisites
-- **Node.js:** 22.22.1 LTS
+- **Node.js:** 24.x
 - **npm** for package management
 
 ### Development Setup
